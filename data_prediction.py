@@ -46,4 +46,6 @@ def predict():
     for i in range(0, 100):
         print(model.predict(X_cv[i].reshape(1, -1)), y_cv.iloc[i])
 
-predict()
+
+if __name__ == '__main__':
+    predict()
