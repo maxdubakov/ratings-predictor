@@ -6,6 +6,7 @@ _android = pd.read_csv('googleplaystore.csv')
 _genres = set()
 _digits = ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ]
 
+
 def get_android():
     return _android
 
@@ -89,7 +90,7 @@ def prepare_data() -> pd.DataFrame:
     _android['Category'] = _android['Category'].apply(lambda c: categories[c])
 
     # RATING
-    _android.dropna(axis=0, inplace=True)
+    _android['Rating'] = _android['Rating'].fillna(4.19)
 
     # REVIEWS
     _android['Reviews'] = _android['Reviews'].apply(lambda r: int(r))
